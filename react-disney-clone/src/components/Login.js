@@ -5,7 +5,9 @@ const Login = (props) => {
     <Container>
       <Content>
         <CTA>
-          <CTALogoOne src="/images/cta-logo-one.png"/>
+          <CTALogoOne src="/images/cta-logo-one.svg"/>
+          <SignUp>GET ALL THERE</SignUp>
+          <CTALogoTwo src="/images/cta-logo-two.png"/>
         </CTA>
         <BackgroundImg/>
       </Content>
@@ -48,18 +50,10 @@ const BackgroundImg = styled.div`
 `;
 
 const CTA = styled.div`
-  margin-bottom: 2vw;
-  max-width: 650px;
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 0;
-  align-items: center;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
+max-width: 650px;
+width: 100%;
+display: flex;
+flex-direction: column;
 `;
 
 const CTALogoOne = styled.img`
@@ -67,6 +61,31 @@ const CTALogoOne = styled.img`
   max-width: 600px;
   min-height: 1px;
   display: block;
+  width: 100%;
+`;
+
+const SignUp = styled.a`
+  font-weight: bold;
+  color: #f9f9f9;
+  background-color: #0063e5;
+  margin-bottom: 12px;
+  width: 100%;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  padding: 16.5px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  &:hover {
+    background-color: #0483ee;
+  }
+`;
+
+const CTALogoTwo = styled.img`
+  max-width: 600px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
   width: 100%;
 `;
 
