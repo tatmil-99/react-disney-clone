@@ -33,6 +33,7 @@ const Header = () => {
           <span>SERIES</span>
         </a>
       </NavMenu>
+      <Login>LOGIN</Login>
     </Nav>
   )
 }
@@ -108,6 +109,20 @@ const NavMenu = styled.div`
   /* @media (max-width: 768px) {
     display: none;
   } */
+`;
+
+const Login = styled.a`
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  letter-spacing: 1.5px;
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    border-color: transparent;
+  }
 `;
 
 export default Header
