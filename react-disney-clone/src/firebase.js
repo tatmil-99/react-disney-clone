@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyC3Y39pt6mkmcrhgU3KO29lbVs6Tfit8zw",
   authDomain: "disneyplus-clone-b2b38.firebaseapp.com",
@@ -8,7 +10,7 @@ const firebaseConfig = {
   measurementId: "G-ZWWR4E1099"
 };
 
-const firebaseApp = firebase.initialize(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
