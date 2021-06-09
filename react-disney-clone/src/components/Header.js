@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { auth, provider } from '../firebase';
 import { useDispatch , useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 import { 
   selectUserName,
   selectUserPhoto,
@@ -16,23 +17,34 @@ const Header = () => {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if(user) {
+        setUser(user)
+        history.push("/home");
+      }
+    });
+  }, [userName]);
+
   const handleAuth = () => {
     try {
       auth.signInWithPopup(provider)
       .then((result) => {
         setUser(result.user);
-      })
+      });
     } catch (error) {
       alert(error.message);
     }
   }
 
   const setUser = (user) => {
-    dispatch(setUserLoginDetails({
-      name: user.displayName,
-      email: user.email,
-      photo: user.photoURL,
-    }))
+    dispatch(
+      setUserLoginDetails({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      })
+    );
   }
 
   return (
