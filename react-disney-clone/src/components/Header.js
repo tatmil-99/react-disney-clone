@@ -16,10 +16,12 @@ const Header = () => {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
-  const handleAuth = async () => {
+  const handleAuth = () => {
     try {
-      let result = await auth.signInWithPopup(provider);
-      setUser(result);
+      auth.signInWithPopup(provider)
+      .then((result) => {
+        setUser(result.user);
+      })
     } catch (error) {
       alert(error.message);
     }
@@ -36,7 +38,7 @@ const Header = () => {
   return (
     <Nav>
       <Logo>
-        <img src="./images/logo.svg"></img>
+        <img src="./images/logo.svg" alt="Disney+"></img>
       </Logo>
       {!userName ? (
         <Login onClick={handleAuth}>LOGIN</Login> 
